@@ -25,8 +25,8 @@ The analysis pipeline consists of the following steps:
 - Define MDD phenotype (`DEPRESSION_SELF`)
 - Construct covariate files including age, sex, and ancestry principal components (PCs)
 
-Script:
-src/01_phenotype_and_covariate_preparation.R
+Script:  
+`src/01_phenotype_and_covariate_preparation.R`
 
 ---
 
@@ -43,8 +43,22 @@ Specifically:
 
 Variant IDs are then converted to rsIDs before PRS construction.
 
-Script:
-src/03_prs_pipeline.sh
+Script:  
+`src/02_genotype_input_preparation.sh`
+
+---
+
+### 3. PRS Construction
+
+Polygenic risk scores are constructed using two approaches:
+
+- PRSice-2 (clumping and thresholding)
+- PRS-CS (Bayesian regression framework)
+
+External GWAS summary statistics are used to compute PRS for TWB samples.
+
+Script:  
+`src/03_prs_pipeline.sh`
 
 ---
 
@@ -57,8 +71,8 @@ Methylation risk scores are constructed using EWAS-derived CpG sites.
 - Representative CpG sites are selected per region
 - MRS is computed based on selected CpGs
 
-Script:
-src/04_mrs_construction.R
+Script:  
+`src/04_mrs_construction.R`
 
 ---
 
@@ -72,9 +86,9 @@ Logistic regression models are built sequentially:
 
 Model performance is evaluated using metrics such as AUC.
 
-Scripts:
-src/05_prs_model_analysis.R
-src/06_mrs_model_analysis.R
+Scripts:  
+`src/05_prs_model_analysis.R`  
+`src/06_mrs_model_analysis.R`
 
 ---
 
@@ -88,5 +102,5 @@ src/06_mrs_model_analysis.R
 
 ## Author
 
-Shih-Hsiang "Shaun" Lo
+Shih-Hsiang "Shaun" Lo  
 Institute of Health Data Science, Department of Public Health, National Taiwan University
